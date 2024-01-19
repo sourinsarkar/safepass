@@ -1,9 +1,9 @@
 const Generator: React.FC = () => {
-    return (
-        <div>
+  return (
+    <div>
 
-        </div>
-    );
-}
+    </div>
+  );
+};
 
-export default Generator
+export default Generator;
