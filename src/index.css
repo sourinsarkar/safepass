@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary-font: 'Inter-Variable';
+}
+
+body {
+    font-family: var(--primary-font);
+}
+
+@font-face {
+    font-family: 'Inter-Variable';
+    src: url('/fonts/Inter/Inter-Variable.woff2') format('woff2'),
+        url('/fonts/Inter/Inter-Variable.woff') format('woff'),
+        url('/fonts/Inter/Inter-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+.primary-font {
+    font-family: var(--primary-font);
+    letter-spacing: 0.3px;
+}
