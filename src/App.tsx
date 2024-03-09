@@ -1,9 +1,9 @@
-import Home from "./layouts/Home";
+import HomeLayout from "./layouts/HomeLayout";
 
 const App: React.FC = () => {
   return (
     <div>
-      <Home />
+      <HomeLayout />
     </div>
   );
 };
