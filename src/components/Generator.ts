@@ -2,7 +2,7 @@ export default function Generator() {
     let newPassword = "";
     const characterCollection =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_";
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 16; i++) {
       const randomCharacter = Math.floor(
         Math.random() * characterCollection.length
       );

@@ -1,19 +1,23 @@
+import { useCallback, useState } from "react";
 import { ChevronDownIcon, ClipboardDocumentIcon } from "@heroicons/react/24/outline";
 import { MagicWand } from "@phosphor-icons/react";
-import type { RootState } from "../store/store"
 import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../store/store"
 import { createNewPassword } from "../slices/controlPanel/generate"
-import { useState } from "react";
 
 const HomePage: React.FC = () => {
-    const newPassword = useSelector((state: RootState) => state.generate.value);
+    const password = useSelector((state: RootState) => state.generate.value) ?? "";
     const dispatch = useDispatch();
 
     const [isClicked, setIsClicked] = useState(false);
-    function handleNewPassword() {
+    function generateNewPassword() {
         setIsClicked(true);
         dispatch(createNewPassword());
     }
+
+    const copyToClipboard = useCallback(() => {
+        window.navigator.clipboard.writeText(password);
+    }, [password]);
 
   return (
     <div className="flex flex-col">
@@ -37,14 +41,14 @@ const HomePage: React.FC = () => {
                         <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">
                             {
                              isClicked 
-                               ? newPassword
+                               ? password
                                : <span className="flex">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</span>
                             }                               
                         </p>
                     </div>
                     <div className="flex items-center justify-end gap-3">
-                        <div className="p-4 bg-iconBgColor rounded-full" onClick={handleNewPassword}><MagicWand weight="duotone" size={20} className="text-iconColor" /> </div>
-                        <div className="p-2 hover:bg-iconBgColor rounded-md"><ClipboardDocumentIcon className="h-5 w-5 text-iconColor" /> </div>
+                        <div className="p-4 bg-iconBgColor rounded-full" onClick={generateNewPassword}><MagicWand weight="duotone" size={20} className="text-iconColor" /> </div>
+                        <div className="p-2 hover:bg-iconBgColor rounded-md" onClick={copyToClipboard}><ClipboardDocumentIcon className="h-5 w-5 text-iconColor" /> </div>
                     </div>
                 </div>
             </div>
