@@ -1,4 +1,4 @@
-export function Generator() {
+export default function Generator() {
     let newPassword = "";
     const characterCollection =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_";
