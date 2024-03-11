@@ -38,11 +38,11 @@ const HomePage: React.FC = () => {
                     </div>
                     <div className="w-full mx-3">
                         {/* <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</p> */}
-                        <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">
+                        <p className="flex items-center text-2xl font-semibold tracking-tight text-primeTextColor">
                             {
                              isClicked 
                                ? password
-                               : <span className="flex">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</span>
+                               : <span className="flex gap-2">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</span>
                             }                               
                         </p>
                     </div>
