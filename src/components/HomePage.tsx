@@ -1,7 +1,20 @@
 import { ChevronDownIcon, ClipboardDocumentIcon } from "@heroicons/react/24/outline";
 import { MagicWand } from "@phosphor-icons/react";
+import type { RootState } from "../store/store"
+import { useDispatch, useSelector } from "react-redux";
+import { createNewPassword } from "../slices/controlPanel/generate"
+import { useState } from "react";
 
 const HomePage: React.FC = () => {
+    const newPassword = useSelector((state: RootState) => state.generate.value);
+    const dispatch = useDispatch();
+
+    const [isClicked, setIsClicked] = useState(false);
+    function handleNewPassword() {
+        setIsClicked(true);
+        dispatch(createNewPassword());
+    }
+
   return (
     <div className="flex flex-col">
         <div>
@@ -20,10 +33,17 @@ const HomePage: React.FC = () => {
                         <ChevronDownIcon className="h-4 w-4 text-iconColor stroke-2" />
                     </div>
                     <div className="w-full mx-3">
-                        <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</p>
+                        {/* <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</p> */}
+                        <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">
+                            {
+                             isClicked 
+                               ? newPassword
+                               : <span className="flex">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</span>
+                            }                               
+                        </p>
                     </div>
                     <div className="flex items-center justify-end gap-3">
-                        <div className="p-4 bg-iconBgColor rounded-full"><MagicWand weight="duotone" size={20} className="text-iconColor" /> </div>
+                        <div className="p-4 bg-iconBgColor rounded-full" onClick={handleNewPassword}><MagicWand weight="duotone" size={20} className="text-iconColor" /> </div>
                         <div className="p-2 hover:bg-iconBgColor rounded-md"><ClipboardDocumentIcon className="h-5 w-5 text-iconColor" /> </div>
                     </div>
                 </div>

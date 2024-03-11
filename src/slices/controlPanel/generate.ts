@@ -13,11 +13,11 @@ export const generate = createSlice({
     name: "generate",
     initialState,
     reducers: {
-        createNew: (state) => {
+        createNewPassword: (state) => {
             state.value = Generator();
         }
     }
 })
 
-export const { createNew } = generate.actions;
+export const { createNewPassword } = generate.actions;
 export default generate.reducer;
