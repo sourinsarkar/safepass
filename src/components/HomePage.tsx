@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
                 <div className="flex justify-between items-center w-full mx-6">
                     <div className="flex items-center gap-2">
                         <div className="py-2 px-3 bg-iconBgColor rounded-md font-medium text-sm tracking-tight text-iconColor">Alphanumeric</div>
-                        <ChevronDownIcon className="h-4 w-4 text-iconColor stroke-2" />
+                        <ChevronDownIcon className="h-4 w-4 text-iconColor stroke-2 hidden" />
                     </div>
                     <div className="w-full mx-3">
                         {/* <p className="flex items-center text-2xl font-semibold tracking-tight gap-2 text-primeTextColor">Click <span className="p-2 rounded-md bg-iconBgColor"><MagicWand weight="duotone" size={20} className="text-iconColor" /></span> for new password</p> */}
